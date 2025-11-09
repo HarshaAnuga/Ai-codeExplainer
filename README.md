@@ -14,7 +14,7 @@ LLms:OPENAI,NIBBIBus
 
 a working AI Code Explainer tool that takes any code snippet and returns clear, beginner-friendly explanations.
 
-React 19’s new features like useActionState and Server Actions,
+used React 19’s new features like useActionState and Server Actions,
 
 API integration and error handling.
 
