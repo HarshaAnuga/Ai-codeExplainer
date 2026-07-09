@@ -8,7 +8,7 @@ Frontend: React19,TailwindCss
 
 Backend:Express.js,RESTAPI's
 
-LLms:OPENAI,NIBBIBus
+LLms:OPENAI,NEBIUS
 
 ## Features
 
