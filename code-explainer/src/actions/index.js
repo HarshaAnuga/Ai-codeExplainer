@@ -14,13 +14,13 @@ export async function explain( prevState,formData){
 
         if(!res.ok){
             return{
-                sucess:false,
+                success:false,
                 error:`Failed to fetch the results`,
             }
         }
          const data =await res.json();
             return{
-                sucess:true,
+                success:true,
                 data,
             };
         }catch(err){

@@ -1,5 +1,5 @@
-import Markdown from "react-markdown"
-import remarkGfm from "remark-gfm"
+import Markdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 
 const CodeExplanation = ({explanation}) => {
   return (
@@ -7,7 +7,7 @@ const CodeExplanation = ({explanation}) => {
     <h2 className="text-xl font-semibold mb-2">Explanation:</h2>
     < Markdown remarkPlugins={[remarkGfm]}>{explanation}</Markdown>
     </div>
-  )
-}
+  );
+};
 
-export default CodeExplanation
+export default CodeExplanation;
