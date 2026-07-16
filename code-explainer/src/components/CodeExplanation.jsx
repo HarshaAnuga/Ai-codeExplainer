@@ -1,5 +1,5 @@
 import Markdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
+import remarkGfm from 'remark-gfm';
 
 const CodeExplanation = ({explanation}) => {
   return (
