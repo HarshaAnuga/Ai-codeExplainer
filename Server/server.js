@@ -5,10 +5,6 @@ import rateLimit from "express-rate-limit";
 import helmet from "helmet";
 import OpenAI from "openai";
 
-
-
-
-
 const app = express();
 
 const PORT = Number(process.env.PORT) || 3002;
