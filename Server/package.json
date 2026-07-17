@@ -1,12 +1,15 @@
 {
-  "name": "server",
+  "name": "code-explainer-api",
   "version": "1.0.0",
-  "description": "index.js",
+  "description": "API that explains code using Nebius Token Factory",
   "type": "module",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "dev": "node server.js",
+    "dev": "node --watchserver.js",
     "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
   },
   "author": "",
   "license": "ISC",
