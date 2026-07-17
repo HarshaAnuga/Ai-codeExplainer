@@ -1,11 +1,13 @@
 
-import { useActionState } from "react"
+import { useState, useActionState } from "react"
 import { explain } from "../../actions";
 import CodeExplanation from "../CodeExplanation";
 import Error from "../Error";
 
 const initialState=null;
 const CodeExplain = () => {
+ const [code, setCode] = useState("");
+  const [language, setLanguage] = useState("javascript");
 
     const[formState, formAction, isPending]=useActionState(explain,initialState);
   return (
@@ -15,6 +17,8 @@ const CodeExplain = () => {
          <label className="block mb-2 font-semibold">Language:</label>
            <select 
            name="language"
+           value={language}
+           onChange={(e) => setLanguage(e.target.value)}
            className="border rounded-lg p-2 w-full mb-4 bg-transparent">
             <option value="javascript">JavaScript</option>
             <option value="python">Python</option>
@@ -24,6 +28,8 @@ const CodeExplain = () => {
            <textarea
               name="code"
               required
+              value={code}
+              onChange={(e) => setCode(e.target.value)}
               placeholder="Paste your code here..."
               className="min-h-[150px] w-full rounded-lg border bg-transparent p-3 font-mono text-sm"
               ></textarea>
