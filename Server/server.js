@@ -5,10 +5,17 @@ import rateLimit from "express-rate-limit";
 import helmet from "helmet";
 import OpenAI from "openai";
 
+
+
+
+
 const app = express();
 
 const PORT = Number(process.env.PORT) || 3002;
-const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:3000";
+const frontendUrl = (process.env.FRONTEND_URL || "")
+.trim()
+  .replace(/\/+$/, "");
+console.log("CORS allowed origin:", frontendUrl);
 const NEBIUS_API_KEY = process.env.NEBIUS_API_KEY;
 const MODEL = process.env.NEBIUS_MODEL || "deepseek-ai/DeepSeek-V4-Pro";
 
@@ -21,13 +28,27 @@ if (!NEBIUS_API_KEY) {
 
 app.use(helmet());
 
-const cors = require("cors");
+
+
+const allowedOrigins = [
+  frontendUrl,
+  "http://localhost:5173",
+  "http://localhost:3000",
+].filter(Boolean);
 
 app.use(cors({
-  origin: process.env.FRONTEND_URL,   
-  methods: ["GET", "POST", "OPTIONS"],
+  origin: function (origin, callback) {
+    // allow Postman / server-to-server (no origin)
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      console.log("Blocked origin:", origin);
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true
+  credentials: true,
 }));
 
 app.options("*", cors());
