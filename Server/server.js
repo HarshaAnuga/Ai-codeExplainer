@@ -21,13 +21,16 @@ if (!NEBIUS_API_KEY) {
 
 app.use(helmet());
 
-app.use(
-  cors({
-    origin: FRONTEND_URL,
-    credentials: true,
-    methods: ["POST"],
-  })
-);
+const cors = require("cors");
+
+app.use(cors({
+  origin: process.env.FRONTEND_URL,   
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
+}));
+
+app.options("*", cors());
 
 app.use(
   rateLimit({
