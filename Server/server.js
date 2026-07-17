@@ -60,7 +60,7 @@ app.get("/health", (_req, res) => {
   res.status(200).json({ ok: true, uptime: process.uptime() });
 });
 
-app.post("/api/explain-code", async (req, res) => {
+app.post("/explain-code", async (req, res) => {
   try {
     const { code, language } = req.body ?? {};
 
