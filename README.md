@@ -1,4 +1,4 @@
-# AI Code Explainer
+# CodeSplain
 
 An intelligent web application that explains code snippets in simple, easy-to-understand language using AI. Built with React, Vite, and Node.js/Express.
 
